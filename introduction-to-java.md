@@ -45,6 +45,7 @@
 | Interpreted and High Performance | Uses JIT compiler for optimized execution            |
 | Distributed    | Built-in support for networking and distributed computing              |
 
+
 ## 1.9 Object-Oriented Programming (OOP)
 - Java follows OOP principles like:
   - *Encapsulation*: Hiding data inside classes.
