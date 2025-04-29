@@ -1,4 +1,3 @@
-
 # 📌 12. Multi-threading & Executor Service  
 
 ## **Topics Covered:**  
@@ -167,16 +166,5 @@ Future<Integer> future = executor.submit(task);
 System.out.println(future.get()); // Output: 25
 executor.shutdown();
 ```
-
----
-
-## **🔹 Tasks for Practice:**  
-✔ **Create two threads that print messages independently**  
-✔ **Monitor thread states using `getState()`**  
-✔ **Ensure thread execution order using `join()`**  
-✔ **Simulate a traffic signal using thread synchronization**  
-✔ **Use ExecutorService for managing multiple tasks**  
-✔ **Retrieve results using `Future` & `Callable`**  
-
 ---
 
