@@ -1,0 +1,182 @@
+
+# 📌 12. Multi-threading & Executor Service  
+
+## **Topics Covered:**  
+1. Intro to Multi-threading  
+2. Creating a Thread (`Thread` Class & `Runnable` Interface)  
+3. States of a Thread (`New, Runnable, Running, Blocked, Terminated`)  
+4. Thread Priority (`setPriority()`, `getPriority()`)  
+5. `join()` Method (Thread Synchronization)  
+6. `synchronized` Keyword (Mutual Exclusion & Locks)  
+7. Thread Communication (`wait()`, `notify()`, `sleep()`, `yield()`)  
+8. Intro to Executor Service (`Thread Pool Management`)  
+9. Multiple Threads with Executor (`FixedThreadPool`, `CachedThreadPool`)  
+10. Returning Futures (`Callable`, `Future`)  
+
+---
+
+## **12.1 What is a Thread?**  
+📌 **A thread is a lightweight process that runs independently within a program.**  
+
+✅ **Why Threads?**  
+✔ Multitasking → Execute multiple tasks **simultaneously**  
+✔ Resource Efficiency → Uses fewer system resources than processes  
+✔ Asynchronous Execution → Handle multiple user requests  
+
+✅ **Thread Communication Methods:**  
+✔ `wait()`, `notify()`, `notifyAll()` → Allows threads to communicate  
+✔ `sleep(long millis)` → Pauses execution for a given time  
+✔ `yield()` → Suggests scheduler to run another thread  
+
+---
+
+## **12.2 Need for Multi-threading**  
+📌 **Why use multiple threads instead of sequential execution?**  
+
+✅ **Advantages:**  
+✔ **Parallel Execution** → Processes independent tasks simultaneously  
+✔ **Multi-core CPU Utilization** → Prevents CPU from sitting idle  
+✔ **Task Division** → Breaks big tasks into smaller, manageable ones  
+✔ **Responsiveness** → Prevents GUI freezing  
+
+---
+
+## **12.3 Creating a Thread**  
+📌 **Two ways to create a thread:**  
+
+### ✅ **Method 1: Extending `Thread` Class**  
+```java
+class MyThread extends Thread {
+    public void run() { System.out.println("Thread running"); }
+}
+MyThread t1 = new MyThread();
+t1.start(); // Starts execution
+```
+
+### ✅ **Method 2: Implementing `Runnable` Interface**  
+```java
+class MyRunnable implements Runnable {
+    public void run() { System.out.println("Runnable thread running"); }
+}
+Thread t2 = new Thread(new MyRunnable());
+t2.start();
+```
+✔ **Prefer `Runnable` for better flexibility**  
+
+---
+
+## **12.4 States of a Thread**  
+📌 **A thread transitions through various states:**  
+
+| **State**          | **Description** |
+|-------------------|---------------|
+| `NEW`            | Created but not started |
+| `RUNNABLE`       | Ready to execute |
+| `RUNNING`        | Actively executing |
+| `BLOCKED/WAITING` | Waiting for another thread/resource |
+| `TERMINATED`     | Completed execution |
+
+✅ **Example Checking Thread State:**  
+```java
+Thread t = new Thread();
+System.out.println(t.getState()); // Output: NEW
+```
+
+---
+
+## **12.5 Thread Priority**  
+📌 **Java threads have priority levels from `1` (Lowest) to `10` (Highest).**  
+
+✅ **Setting Thread Priority:**  
+```java
+t.setPriority(Thread.MAX_PRIORITY);  // Set priority to 10
+System.out.println(t.getPriority()); // Output: 10
+```
+✔ **Higher priority increases the chance of execution first but doesn't guarantee it!**  
+
+---
+
+## **12.6 `join()` Method**  
+📌 **Ensures a thread completes execution before another starts.**  
+
+✅ **Example Using `join()`:**  
+```java
+Thread t1 = new Thread(() -> System.out.println("Thread 1 running"));
+Thread t2 = new Thread(() -> System.out.println("Thread 2 running"));
+
+t1.start();
+t1.join(); // Ensures t1 completes before t2 starts
+t2.start();
+```
+
+---
+
+## **12.7 `synchronized` Keyword**  
+📌 **Ensures mutual exclusion in multi-threading.**  
+
+✅ **Example Using `synchronized`:**  
+```java
+class SharedResource {
+    synchronized void printNumbers() {
+        for (int i = 1; i <= 5; i++) System.out.println(i);
+    }
+}
+```
+✔ Prevents **race conditions** when accessing shared resources  
+
+---
+
+## **12.8 Thread Communication (`wait()`, `notify()`, `sleep()`)**  
+📌 **Threads communicate using synchronization methods.**  
+
+✅ **Example Using `wait()` & `notify()`:**  
+```java
+synchronized (obj) {
+    obj.wait(); // Pauses execution
+    obj.notify(); // Wakes up a waiting thread
+}
+```
+
+---
+
+## **12.9 Introduction to Executor Service**  
+📌 **Manages thread pools efficiently.**  
+
+✅ **Why Use ExecutorService?**  
+✔ Reduces thread creation overhead  
+✔ Efficient **thread reuse**  
+✔ Handles large numbers of tasks  
+
+✅ **Example Creating ExecutorService:**  
+```java
+ExecutorService executor = Executors.newFixedThreadPool(3);
+executor.submit(() -> System.out.println("Task running"));
+executor.shutdown();
+```
+
+---
+
+## **12.10 Returning Futures (`Callable` & `Future`)**  
+📌 **Retrieve results from threads using `Future`.**  
+
+✅ **Example Using `Callable` & `Future`:**  
+```java
+ExecutorService executor = Executors.newFixedThreadPool(3);
+Callable<Integer> task = () -> 5 * 5;
+Future<Integer> future = executor.submit(task);
+System.out.println(future.get()); // Output: 25
+executor.shutdown();
+```
+
+---
+
+## **🔹 Tasks for Practice:**  
+✔ **Create two threads that print messages independently**  
+✔ **Monitor thread states using `getState()`**  
+✔ **Ensure thread execution order using `join()`**  
+✔ **Simulate a traffic signal using thread synchronization**  
+✔ **Use ExecutorService for managing multiple tasks**  
+✔ **Retrieve results using `Future` & `Callable`**  
+
+---
+
