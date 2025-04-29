@@ -92,6 +92,4 @@ This section **establishes a strong foundation** for Java beginners by covering:
 ✅ **JDK vs JRE vs JVM** → Understanding their roles & relationships  
 ✅ **Writing First Java Program** → Learning how Java code is structured & executed  
 
-💡 These are **essential concepts** for **anyone** starting their Java journey. With this knowledge, you can now **explore deeper topics like Object-Oriented Programming, Data Structures, and Advanced Java Concepts**! 🚀  
-
 ---
