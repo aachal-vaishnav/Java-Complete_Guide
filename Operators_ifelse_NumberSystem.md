@@ -189,16 +189,50 @@ System.out.println("Decimal: " + binaryNumber);
 ## **Bitwise Operators - Perform Bit-Level Operations**  
 Bitwise operators work **directly on binary representations of numbers**, manipulating individual bits.  
 
-| **Operator** | **Meaning**               | **Example**  | **Explanation** |
-|-------------|---------------------------|--------------|----------------|
-| `&`         | Bitwise AND                | `x & y`      | Sets bits to `1` if both bits are `1` |
-| `|`         | Bitwise OR                 | `x | y`      | Sets bits to `1` if any bit is `1` |
-| `^`         | Bitwise XOR                | `x ^ y`      | Sets bits to `1` if bits are different |
-| `~`         | Bitwise NOT (Complement)   | `~x`         | Inverts all bits (0 → 1, 1 → 0) |
-| `<<`        | Left Shift                 | `x << 2`     | Shifts bits **left**, filling zeros |
-| `>>`        | Right Shift                | `x >> 2`     | Shifts bits **right**, filling zeros or ones |
-
----
+<table>
+  <tr>
+    <th>Operator</th>
+    <th>Meaning</th>
+    <th>Example</th>
+    <th>Explanation</th>
+  </tr>
+  <tr>
+    <td><code>&</code></td>
+    <td>Bitwise AND</td>
+    <td><code>x & y</code></td>
+    <td>Sets bits to <code>1</code> if both bits are <code>1</code></td>
+  </tr>
+  <tr>
+    <td><code>|</code></td>
+    <td>Bitwise OR</td>
+    <td><code>x | y</code></td>
+    <td>Sets bits to <code>1</code> if any bit is <code>1</code></td>
+  </tr>
+  <tr>
+    <td><code>^</code></td>
+    <td>Bitwise XOR</td>
+    <td><code>x ^ y</code></td>
+    <td>Sets bits to <code>1</code> if bits are different</td>
+  </tr>
+  <tr>
+    <td><code>~</code></td>
+    <td>Bitwise NOT</td>
+    <td><code>~x</code></td>
+    <td>Inverts all bits (0 → 1, 1 → 0)</td>
+  </tr>
+  <tr>
+    <td><code>&lt;&lt;</code></td>
+    <td>Left Shift</td>
+    <td><code>x << 2</code></td>
+    <td>Shifts bits left, filling zeros</td>
+  </tr>
+  <tr>
+    <td><code>&gt;&gt;</code></td>
+    <td>Right Shift</td>
+    <td><code>x >> 2</code></td>
+    <td>Shifts bits right, filling zeros or ones</td>
+  </tr>
+</table>
 
 ### **✅ Examples of Bitwise Operators**  
 
@@ -212,6 +246,7 @@ System.out.println("XOR: " + (a ^ b));   // 0101 ^ 0011 → 0110 → 6
 System.out.println("NOT A: " + (~a));    // ~0101 → Inverts → -6
 System.out.println("Left Shift A: " + (a << 2));  // 0101 << 2 → 10100 → 20
 System.out.println("Right Shift A: " + (a >> 2)); // 0101 >> 2 → 0001 → 1
+
 
 
 ---
